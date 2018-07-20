@@ -13,7 +13,7 @@ public class WagonImpl implements Wagon {
     private int size;
 
     public WagonImpl(int size) {
-        passangersInWagon = new LinkedHashMap<Long, Passanger>();
+        passangersInWagon = new LinkedHashMap<>();
         this.size = size;
     }
 
@@ -33,7 +33,7 @@ public class WagonImpl implements Wagon {
         if(stationName == null){
             return Collections.emptyMap();
         }
-        Map<Long, Passanger> leavingPassangers = new HashMap<Long, Passanger>();
+        Map<Long, Passanger> leavingPassangers = new HashMap<>();
 
         for (Map.Entry<Long, Passanger> passanger : passangersInWagon.entrySet()) {
             if (stationName.equals(passanger.getValue().getWorkPlaceStation())) {
