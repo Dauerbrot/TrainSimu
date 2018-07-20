@@ -30,6 +30,9 @@ public class WagonImpl implements Wagon {
 
     @Override
     public Map<Long, Passanger> removePassanger(String stationName) {
+        if(stationName == null){
+            return Collections.emptyMap();
+        }
         Map<Long, Passanger> leavingPassangers = new HashMap<Long, Passanger>();
 
         for (Map.Entry<Long, Passanger> passanger : passangersInWagon.entrySet()) {

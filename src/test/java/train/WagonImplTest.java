@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class WagonImplTest {
 
-    public static final long ID = 0L;
+    private static final long ID = 0L;
     private Wagon wagon;
 
     private Passanger mockPassanger(Long id, String destination) {
@@ -68,6 +68,12 @@ public class WagonImplTest {
     }
 
     @Test
+    public void leavingByinvalidStationName(){
+        Map<Long, Passanger> leaving = wagon.removePassanger(null);
+        Assert.assertTrue(leaving.isEmpty());
+    }
+
+    @Test
     public void LeavingPassangerByEmptyWagon(){
         Map<Long, Passanger> leaving = wagon.removePassanger("Wuhletal");
         Assert.assertTrue(leaving.isEmpty());
@@ -79,8 +85,7 @@ public class WagonImplTest {
         String realDestination = "Wuhletal";
         String destination = "Friedrichsstraße";
         String otherDestiantions = "Tierpark";
-        long id = ID;
-        fillWagonWithPassangers(destination, otherDestiantions, id);
+        fillWagonWithPassangers(destination, otherDestiantions);
         Map<Long,Passanger> result = wagon.removePassanger(realDestination);
         Assert.assertTrue(result.isEmpty());
 
@@ -93,19 +98,24 @@ public class WagonImplTest {
         //Given
         String destination = "Alexanderplatz";
         String otherDestiantions = "Louis-Lewin-Straße";
-        long id = ID;
-        fillWagonWithPassangers(destination, otherDestiantions, id);
+        fillWagonWithPassangers(destination, otherDestiantions);
         //when
-        Map<Long,Passanger> leavingPassangers =  wagon.removePassanger(destination);
 
+        Assert.assertTrue(wagon.isWagonFull());
+        Map<Long,Passanger> leavingPassangers =  wagon.removePassanger(destination);
+        //then
+        Assert.assertFalse(wagon.isWagonFull());
         Assert.assertEquals(4,leavingPassangers.size());
+        //ever passanger have the same destination and not a single one leaves the wrong position
         for(Map.Entry<Long,Passanger> result : leavingPassangers.entrySet()){
             Assert.assertEquals(destination,result.getValue().getWorkPlaceStation());
         }
     }
 
 
-    private void fillWagonWithPassangers(String destination, String otherDestiantions, long id) {
+    private void fillWagonWithPassangers(String destination, String otherDestiantions) {
+        Long id = ID;
+
         while (!wagon.isWagonFull()) {
             Passanger passangerSimulation;
             if (id % 10 == 0) {
