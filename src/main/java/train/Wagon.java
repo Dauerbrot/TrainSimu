@@ -2,10 +2,12 @@ package train;
 
 import passanger.Passanger;
 
-import java.util.List;
+import java.util.Map;
 
 public interface Wagon {
-    public void addPassanger(Passanger passanger);
+    public Passanger addPassanger(Passanger passanger);
     //Passangers, who leaves the Train so change Station  or reached their goal
-    public List<Passanger> removePassanger(int amount);
+    public Map<Long, Passanger> removePassanger(String stationName);
+
+    public boolean isWagonFull();
 }
