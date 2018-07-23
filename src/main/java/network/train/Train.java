@@ -1,10 +1,12 @@
-package train;
+package network.train;
 
-import station.Station;
+import network.station.Station;
 
 import java.util.List;
 
 public interface Train {
+
+    public String getLineName();
     public Station getDestination();
 
     public Station getStart();

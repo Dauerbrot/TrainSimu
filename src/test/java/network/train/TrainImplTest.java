@@ -1,10 +1,13 @@
-package train;
+package network.train;
 
+import network.train.Train;
+import network.train.TrainImpl;
+import network.train.Wagon;
 import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import station.Station;
+import network.station.Station;
 
 import java.util.*;
 
@@ -35,7 +38,7 @@ public class TrainImplTest {
         destinationStation = mockStation("Wuhletal", null);
         startStation = mockStation("Hellersdorf", destinationStation);
 
-        train = new TrainImpl(wagons, startStation, destinationStation);
+        train = new TrainImpl("S5", wagons, startStation, destinationStation);
     }
 
     @Test
@@ -52,6 +55,11 @@ public class TrainImplTest {
     public void getRoute() {
         List<Station> result = train.getRoute();
         Assert.assertEquals(2, result.size());
+    }
+
+    @Test
+    public void getLineName(){
+        Assert.assertEquals("S5", train.getLineName());
     }
 
     @Test
@@ -151,7 +159,7 @@ public class TrainImplTest {
         route.add(station03);
         route.add(destinationStation);
 
-        Train train2 = new TrainImpl(new ArrayList<>(),startNewStation,destinationStation, route);
+        Train train2 = new TrainImpl("S5", new ArrayList<>(),startNewStation,destinationStation, route);
 
         //when
         Assert.assertEquals(startNewStation, train2.getActualStation());
@@ -175,7 +183,7 @@ public class TrainImplTest {
         route.add(station03);
         route.add(destinationStation);
 
-        Train train2 = new TrainImpl(new ArrayList<>(),startNewStation,destinationStation, route);
+        Train train2 = new TrainImpl("S5", new ArrayList<>(),startNewStation,destinationStation, route);
         //when
         Assert.assertEquals(startNewStation, train2.getActualStation());
         train2.driveToNextStationOnRoute();
@@ -197,7 +205,7 @@ public class TrainImplTest {
         route.add(station03);
         route.add(destinationStation);
 
-        Train train2 = new TrainImpl(new ArrayList<>(),startNewStation,destinationStation, route);
+        Train train2 = new TrainImpl("S5", new ArrayList<>(),startNewStation,destinationStation, route);
         //when
         Assert.assertEquals(startNewStation, train2.getActualStation());
         train2.driveToNextStationOnRoute();
@@ -220,17 +228,17 @@ public class TrainImplTest {
     //Design by contract
     @Test(expected = NullPointerException.class)
     public void initTrainWithNullStart() {
-        train= new TrainImpl(new ArrayList<>(), null, destinationStation);
+        train= new TrainImpl("S5", new ArrayList<>(), null, destinationStation);
     }
 
     @Test(expected = NullPointerException.class)
     public void initTrainWithNullDestination() {
-        train = new TrainImpl(new ArrayList<>(), startStation, null);
+        train = new TrainImpl("S5", new ArrayList<>(), startStation, null);
     }
 
     @Test(expected = NullPointerException.class)
     public void initTrainWithNullStartAndDestination() {
-        train = new TrainImpl(new ArrayList<>(), null, null);
+        train = new TrainImpl("S5", new ArrayList<>(), null, null);
     }
 
 

@@ -1,10 +1,11 @@
-package train;
+package network.train;
 
-import station.Station;
+import network.station.Station;
 
 import java.util.*;
 
 public class TrainImpl implements Train {
+    private String lineName;
     private static final int POSITION_NEXT_STATION = 1;
     private List<Wagon> wagons;
     private Station destinationStation;
@@ -14,16 +15,16 @@ public class TrainImpl implements Train {
     private int drivingTime;
 
 
-    public TrainImpl(List<Wagon> wagons, Station startStation, Station destinationStation) {
-        this(wagons, startStation, destinationStation, null);
+    public TrainImpl(String lineName, List<Wagon> wagons, Station startStation, Station destinationStation) {
+        this(lineName, wagons, startStation, destinationStation, null);
     }
 
-    public TrainImpl(List<Wagon> wagons, Station startStation, Station destinationStation, List<Station> route) {
+    public TrainImpl(String lineName, List<Wagon> wagons, Station startStation, Station destinationStation, List<Station> route) {
         //invalid start or destination is not allowed to be initialized
         if (startStation == null || destinationStation == null) {
             throw new NullPointerException();
         }
-
+        this.lineName = lineName;
         this.startStation = startStation;
         this.actualStation = startStation;
         this.destinationStation = destinationStation;
@@ -51,6 +52,11 @@ public class TrainImpl implements Train {
         if (startStation.getNextStations().contains(destinationStation)) {
             route.add(destinationStation);
         }
+    }
+
+    @Override
+    public String getLineName() {
+        return lineName;
     }
 
     @Override

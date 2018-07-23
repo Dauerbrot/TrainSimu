@@ -1,5 +1,7 @@
-package train;
+package network.train;
 
+import network.train.Wagon;
+import network.train.WagonImpl;
 import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Before;
