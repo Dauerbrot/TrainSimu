@@ -1,7 +1,7 @@
-package network.train;
+package network.signal;
 
-import network.train.Signal;
-import network.train.Transponder;
+import network.signal.Signal;
+import network.signal.Transponder;
 import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Before;

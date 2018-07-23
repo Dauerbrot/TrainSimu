@@ -2,8 +2,8 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/network/train/Signal.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/network/train/Transponder.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/test/java/network/train/TransponderTest.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/network/signal/Signal.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/network/signal/Transponder.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/test/java/network/signal/TransponderTest.java" charset="windows-1252" />
   </component>
 </project>

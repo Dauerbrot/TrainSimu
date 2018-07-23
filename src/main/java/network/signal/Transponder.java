@@ -1,4 +1,4 @@
-package network.train;
+package network.signal;
 
 public class Transponder {
     private Signal signal;
