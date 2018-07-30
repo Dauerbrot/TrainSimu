@@ -16,7 +16,9 @@ public class CreateStation {
             message.append("Key:").append(costumQuery.getKey()).append(" Value:").append(costumQuery.getValue()).append(System.getProperty("line.separator"));
             System.out.println(message);
         }
-
+        if(message.length() == 0){
+            return "no informations was given over parameters. add to the url '?rest=true&nest=muh' as example";
+        }
         return message.toString();
     }
 }
