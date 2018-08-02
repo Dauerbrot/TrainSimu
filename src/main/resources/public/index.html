@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="webjars/bootstrap/4.1.2/css/bootstrap.css">
+    <link rel="stylesheet" href="webjars/bootstrap/css/bootstrap.css">
     <!-- costum css -->
-    <link rel="stylesheet" href="css/simulation.css">
+    <link rel="stylesheet" href="lib/css/simulation.css">
 
 </head>
-<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
-<script src="webjars/angularjs/1.7.2/angular.min.js"></script>
+<script src="webjars/angularjs/angular.min.js"></script>
 <script src="webjars/jquery/3.2.1/jquery.js"></script>
-<script src="webjars/bootstrap/4.1.2/js/bootstrap.min.js"></script>
-<script src="webjars/three.js/r71/three.min.js"></script>
+<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
+<script src="webjars/three/build/three.js"></script>
+<script src="webjars/three/src/renderers/Projector.js"></script>
+<script src="webjars/three/src/renderers/CanvasRenderer.js"></script>
+<!-- extern libs -->
+<script src="lib/extern/OrbitControls.js"></script>
 
 <body>
-
 <div ng-app="">
 
     <p>Input something in the input box:</p>
@@ -40,6 +42,6 @@
         </div>
     </div>
 </div>
-
+<script src="simulation/direction.js"></script>
 </body>
 </html>

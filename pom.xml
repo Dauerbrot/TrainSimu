@@ -66,6 +66,12 @@
         <!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
         <dependency>
             <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>0.30</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
             <version>3.2.1</version>
         </dependency>
@@ -88,13 +94,12 @@
             <artifactId>jquery</artifactId>
             <version>3.3.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.webjars/three.js -->
+        <!-- https://mvnrepository.com/artifact/org.webjars.npm/three -->
         <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>three.js</artifactId>
-            <version>r71</version>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>three</artifactId>
+            <version>0.95.0</version>
         </dependency>
-
 
         <!--                                                TESTS                                                      -->
         <!-- https://mvnrepository.com/artifact/org.easymock/easymock -->
