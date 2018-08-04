@@ -62,6 +62,12 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- Data Base -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
         <!--                                                Webtech                                                      -->
         <!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
         <dependency>

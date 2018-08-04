@@ -1,7 +1,9 @@
-package network;
+package main.network;
 
-import network.station.Station;
-import network.train.Train;
+import main.network.TrainNetwork;
+import main.network.TrainNetworkImpl;
+import main.network.station.Station;
+import main.network.train.Train;
 import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Before;

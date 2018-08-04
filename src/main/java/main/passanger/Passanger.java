@@ -1,4 +1,4 @@
-package passanger;
+package main.passanger;
 
 public interface Passanger {
     //Normal Mind of a Passanger, who wants to reach his workplace

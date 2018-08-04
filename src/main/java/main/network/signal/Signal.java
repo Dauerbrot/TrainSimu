@@ -1,4 +1,4 @@
-package network.signal;
+package main.network.signal;
 
 import java.util.List;
 

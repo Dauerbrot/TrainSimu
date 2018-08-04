@@ -1,4 +1,4 @@
-package network.station;
+package main.network.station;
 
 import java.util.Map;
 import java.util.Set;

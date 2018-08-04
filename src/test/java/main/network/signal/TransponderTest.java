@@ -1,7 +1,7 @@
-package network.signal;
+package main.network.signal;
 
-import network.signal.Signal;
-import network.signal.Transponder;
+import main.network.signal.Signal;
+import main.network.signal.Transponder;
 import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Before;

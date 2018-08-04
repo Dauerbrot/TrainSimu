@@ -1,7 +1,7 @@
-package network;
+package main.network;
 
-import network.station.Station;
-import network.train.Train;
+import main.network.station.Station;
+import main.network.train.Train;
 
 import java.util.Map;
 import java.util.Set;

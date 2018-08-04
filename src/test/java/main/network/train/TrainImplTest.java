@@ -1,13 +1,13 @@
-package network.train;
+package main.network.train;
 
-import network.train.Train;
-import network.train.TrainImpl;
-import network.train.Wagon;
+import main.network.train.Train;
+import main.network.train.TrainImpl;
+import main.network.train.Wagon;
 import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import network.station.Station;
+import main.network.station.Station;
 
 import java.util.*;
 

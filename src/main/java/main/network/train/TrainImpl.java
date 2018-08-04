@@ -1,6 +1,6 @@
-package network.train;
+package main.network.train;
 
-import network.station.Station;
+import main.network.station.Station;
 
 import java.util.*;
 

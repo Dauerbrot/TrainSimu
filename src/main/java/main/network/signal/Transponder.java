@@ -1,4 +1,4 @@
-package network.signal;
+package main.network.signal;
 
 public class Transponder {
     private Signal signal;

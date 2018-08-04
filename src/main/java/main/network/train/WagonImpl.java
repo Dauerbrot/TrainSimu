@@ -1,6 +1,6 @@
-package network.train;
+package main.network.train;
 
-import passanger.Passanger;
+import main.passanger.Passanger;
 
 import java.util.Collections;
 import java.util.HashMap;

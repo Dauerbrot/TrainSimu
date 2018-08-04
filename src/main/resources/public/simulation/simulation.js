@@ -1,39 +1,88 @@
 'use strict'
 
-
 var camera;
 var controls;
 var renderer;
 var scene;
-function init(){
+var groundControl = 1;
+
+function initScene(){
     scene = new THREE.Scene();
     scene.background = new THREE.Color( 0xcccccc );
     scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
+};
 
+function initRenderer(){
     renderer = new THREE.WebGLRenderer( { antialias: true } );
-    renderer.setClearColor( 0xffffff );
+    renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
+}
 
-    camera = new THREE.PerspectiveCamera( 60, window.innerWidth/window.innerHeight, 1, 1000 );
-    camera.position.set( 40, 20, 0 );
-
+function initControls(){
     controls = new THREE.OrbitControls( camera, renderer.domElement);
     controls.maxPolarAngle = Math.PI / 2;
     controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
     controls.dampingFactor = 0.25;
     controls.screenSpacePanning = false;
-    controls.minDistance = 100;
+    controls.minDistance = 10;
     controls.maxDistance = 500;
+}
 
-    var geometry = new THREE.BoxGeometry( 1 , 2, 3 );
-    //var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+function createCube(posX, posZ, color){
     var material = new THREE.MeshNormalMaterial();
-    var cube = new THREE.Mesh( geometry, material );
+    if(color){
+        material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    }
+    var geometry = new THREE.BoxGeometry( 1 , 2, 3 );
+    var cubeMesh = new THREE.Mesh( geometry, material );
+    if(posX){
+        cubeMesh.position.x = posX;
+    }
+
+    if(posZ){
+        cubeMesh.position.z = posZ;
+    }
+
+
+    cubeMesh.position.y = groundControl;
+
+    return cubeMesh;
+}
+
+function createLine(){
+    var material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+    var geometry = new THREE.Geometry();
+    geometry.vertices.push(new THREE.Vector3( -5, 1, 6) );
+    geometry.vertices.push(new THREE.Vector3( 5, 1, -6) );
+
+    //geometry.vertices.push(new THREE.Vector3( -10, 1, 0) );
+    //geometry.vertices.push(new THREE.Vector3( 0, 10, 0) );
+    //geometry.vertices.push(new THREE.Vector3( 10, 1, 0) );
+    return new THREE.Line( geometry, material );
+}
+
+function init(){
+
+    initScene();
+    initRenderer();
+
+    camera = new THREE.PerspectiveCamera( 60, window.innerWidth/window.innerHeight, 1, 1000 );
+    camera.position.set( 40, 20, 0 );
+
+    initControls();
+
+    var cube = createCube(-5,6);
     scene.add( cube );
 
+    var cube1 = createCube(5,-6);
+    scene.add( cube1 );
+    //line test
+    var line = createLine();
+    scene.add( line );
+
     // Grid
-    var gridHelper = new THREE.GridHelper( 1000, 1 );
+    var gridHelper = new THREE.GridHelper( 10, 100 );
     scene.add( gridHelper );
 
 
