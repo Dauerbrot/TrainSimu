@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-public class TestRestCallWithParameters {
+public class TestRestCallWithParametersRestControl {
 
     @RequestMapping("/test")
     String getSomeStationNames(@RequestParam Map<String,String> costumQueries){
