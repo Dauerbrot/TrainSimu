@@ -5,6 +5,7 @@ var controls;
 var renderer;
 var scene;
 var groundControl = 1;
+var containerRender = document.getElementById('container');
 
 function initScene(){
     scene = new THREE.Scene();
@@ -16,7 +17,9 @@ function initRenderer(){
     renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
-    document.body.appendChild( renderer.domElement );
+    console.log(containerRender);
+    containerRender.appendChild( renderer.domElement );
+    //document.body.appendChild( renderer.domElement );
 }
 
 function initControls(){

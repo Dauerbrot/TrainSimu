@@ -100,6 +100,13 @@
             <artifactId>jquery</artifactId>
             <version>3.3.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.webjars.bower/angular-route -->
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>angular-route</artifactId>
+            <version>1.7.0</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.webjars.npm/three -->
         <dependency>
             <groupId>org.webjars.npm</groupId>
