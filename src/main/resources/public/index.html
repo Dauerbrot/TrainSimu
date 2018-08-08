@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
 
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <button type="button" id="sidebarCollapse" ng-click="toggleGraphicField()" class="btn btn-info">
                     <i class="fas fa-align-left"></i>
                     <span>Toggle Sidebar</span>
                 </button>
@@ -27,22 +27,30 @@
             <p>Input something in the input box:</p>
             <p>Name : <input type="text" ng-model="firstName" placeholder="Enter name here"></p>
             {{ firstName + " " + lastName }}
+            {{showGraphic}}
         </div>
         <div class="container" id="container">
-            <h1>My First Bootstrap Page</h1>
-            <p>This is some text.</p>
-            <div class="row">
-                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
-                <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
-                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
-            </div>
-            <div class="row">
-                <div class="col-xs-6 red">
-                    das ist ein test
+            <div id="option1">
+                {{station}}
+                <h1>My First Bootstrap Page</h1>
+                <p>This is some text.</p>
+                <div class="row">
+                    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+                    <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
+                    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
                 </div>
+                <div class="row">
+                    <div class="col-xs-6 red">
+                        das ist ein test
+                    </div>
 
-                <div class="col-xs-3 blue">
-                    das ist kein test
+                    <div class="col-xs-3 blue">
+                        das ist kein test
+                    </div>
+                </div>
+                <div id="createStation">
+                    <button type="button" ng-click="createStation('Louis-Lewin-Str',3,4)"> addStation </button>
+                    <button type="button" ng-click="deleteStation('Louis-Lewin-Str')">removeStation</button>
                 </div>
             </div>
         </div>
@@ -58,8 +66,9 @@
 
 <!-- extern libs -->
 <script src="lib/extern/OrbitControls.js"></script>
-<!-- own files -->
+<!-- graphics part -->
 <script src="simulation/simulation.js"></script>
+<!-- angular-part -->
 <script src="/indexApp.js"></script>
 <script src="/indexCtrl.js"></script>
 <script src="/option/navbar.js"></script>

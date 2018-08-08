@@ -5,7 +5,7 @@ var controls;
 var renderer;
 var scene;
 var groundControl = 1;
-var containerRender = document.getElementById('container');
+
 
 function initScene(){
     scene = new THREE.Scene();
@@ -17,9 +17,9 @@ function initRenderer(){
     renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
-    console.log(containerRender);
+    var containerRender = document.getElementById('container');
+
     containerRender.appendChild( renderer.domElement );
-    //document.body.appendChild( renderer.domElement );
 }
 
 function initControls(){
@@ -32,7 +32,7 @@ function initControls(){
     controls.maxDistance = 500;
 }
 
-function createCube(posX, posZ, color){
+function createCube(name, posX, posZ, color){
     var material = new THREE.MeshNormalMaterial();
     if(color){
         material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
@@ -49,6 +49,7 @@ function createCube(posX, posZ, color){
 
 
     cubeMesh.position.y = groundControl;
+    cubeMesh.name = name;
 
     return cubeMesh;
 }
@@ -65,6 +66,17 @@ function createLine(){
     return new THREE.Line( geometry, material );
 }
 
+function addItemToScene(item){
+    scene.add(item);
+}
+
+/**
+@param itemName is the Name of the Object in the scene
+*/
+function removeItemFromScene(item){
+    scene.remove(item);
+}
+
 function init(){
 
     initScene();
@@ -75,10 +87,10 @@ function init(){
 
     initControls();
 
-    var cube = createCube(-5,6);
+    var cube = createCube('margot', -5, 6);
     scene.add( cube );
 
-    var cube1 = createCube(5,-6);
+    var cube1 = createCube('margot1', 5, -6);
     scene.add( cube1 );
     //line test
     var line = createLine();

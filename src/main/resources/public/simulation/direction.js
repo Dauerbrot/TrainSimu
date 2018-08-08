@@ -86,13 +86,6 @@ function onWindowResize() {
 function animate() {
 
     requestAnimationFrame( animate );
-    /**
-    console.log(controls.object.position.y);
-    if(controls.object.position.y < 0){
-        console.log("alert!");
-        controls.object.position.y = 0;
-    }*/
-
     controls.update(); // only required if controls.enableDamping = true, or if controls.autoRotate = true
 
     render();
