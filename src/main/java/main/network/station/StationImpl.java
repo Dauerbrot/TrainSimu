@@ -1,5 +1,6 @@
 package main.network.station;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,7 +14,8 @@ public class StationImpl {
     private Long id;
 
     private String name;
-    private String line;
+    private int positionX;
+    private int positionZ;
 
     public StationImpl(){}
 
@@ -33,11 +35,19 @@ public class StationImpl {
         this.name = name;
     }
 
-    public String getLine() {
-        return line;
+    public int getPositionX() {
+        return positionX;
     }
 
-    public void setLine(String line) {
-        this.line = line;
+    public void setPositionX(int positionX) {
+        this.positionX = positionX;
+    }
+
+    public int getPositionZ() {
+        return positionZ;
+    }
+
+    public void setPositionZ(int positionZ) {
+        this.positionZ = positionZ;
     }
 }

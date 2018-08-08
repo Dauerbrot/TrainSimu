@@ -17,8 +17,9 @@ public class RouteRestControll {
     public Route getRoute(){
         StationImpl station = new StationImpl();
         station.setId(100001L);
-        station.setLine("S1");
-        station.setName("Löwemstraße");
+        station.setName("Loewemstrasse");
+        station.setPositionX(4);
+        station.setPositionZ(-4);
         stationRepository.save(station);
 
         return null;
