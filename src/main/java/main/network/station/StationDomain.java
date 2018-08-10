@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="STATION")
-public class StationImpl {
+@Table(name="station")
+public class StationDomain {
     @Id
     @GeneratedValue
     private Long id;
@@ -17,7 +17,7 @@ public class StationImpl {
     private int positionX;
     private int positionZ;
 
-    public StationImpl(){}
+    public StationDomain(){}
 
     public Long getId() {
         return id;

@@ -6,8 +6,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StationRepository extends JpaRepository<StationImpl, Long> {
-    @Query("SELECT s FROM StationImpl s WHERE s.name = :name")
-    public StationImpl findStationByName(@Param("name") String name);
+public interface StationRepository extends JpaRepository<StationDomain, Long> {
+    @Query("SELECT s FROM StationDomain s WHERE s.name = :name")
+    public StationDomain findStationByName(@Param("name") String name);
 
 }
