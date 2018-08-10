@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<div>
+    <h2>Create Station</h2>
+    <div>
+        <input type="text" ng-model="stationName" ng-change="checkName()">
+    </div>
+
+    <div>
+        <input type="number" ng-model="stationPositionX">
+    </div>
+
+    <div>
+        <input type="number" ng-model="stationNamePositionZ">
+    </div>
+    <button ng-disabled="disableCreateButton" type="button" ng-click="createStation()"> addStation </button>{{errorMessage}}
+
+</div>

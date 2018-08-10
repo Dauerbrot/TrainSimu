@@ -1,6 +1,6 @@
 app.directive("navigationList",function(){
     var controller = ['$scope', function($scope){
-        console.log($scope);
+        //console.log($scope);
     }];
 
     return {
@@ -8,5 +8,4 @@ app.directive("navigationList",function(){
         templateUrl: "/option/navbar.html",
         controller: controller
     }
-
 })
