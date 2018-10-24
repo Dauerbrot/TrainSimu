@@ -59,10 +59,6 @@ function createLine(){
     var geometry = new THREE.Geometry();
     geometry.vertices.push(new THREE.Vector3( -5, 1, 6) );
     geometry.vertices.push(new THREE.Vector3( 5, 1, -6) );
-
-    //geometry.vertices.push(new THREE.Vector3( -10, 1, 0) );
-    //geometry.vertices.push(new THREE.Vector3( 0, 10, 0) );
-    //geometry.vertices.push(new THREE.Vector3( 10, 1, 0) );
     return new THREE.Line( geometry, material );
 }
 
@@ -77,6 +73,21 @@ function removeItemFromScene(item){
     scene.remove(item);
 }
 
+/**
+*WILL BE DELETED!! Is only for the purpose to create some default
+* Stations with one simple Route
+*/
+function initTestSceneWithStationAndLine(){
+    var cube = createCube('margot', -5, 6);
+    scene.add( cube );
+
+    var cube1 = createCube('margot1', 5, -6);
+    scene.add( cube1 );
+    //line test
+    var line = createLine();
+    scene.add( line );
+};
+
 function init(){
 
     initScene();
@@ -87,14 +98,7 @@ function init(){
 
     initControls();
 
-    var cube = createCube('margot', -5, 6);
-    scene.add( cube );
-
-    var cube1 = createCube('margot1', 5, -6);
-    scene.add( cube1 );
-    //line test
-    var line = createLine();
-    scene.add( line );
+    //initTestSceneWithStationAndLine();
 
     // Grid
     var gridHelper = new THREE.GridHelper( 10, 100 );
@@ -105,30 +109,6 @@ function init(){
     var light = new THREE.DirectionalLight( 0xffffff );
     light.position.set( 1, 1, 1 );
     scene.add( light );
-
-    /** lights
-    var light = new THREE.DirectionalLight( 0xffffff );
-    light.position.set( 1, 1, 1 );
-    scene.add( light );
-
-    light = new THREE.DirectionalLight( 0x002288 );
-    light.position.set( - 1, - 1, - 1 );
-    scene.add( light );
-
-    light = new THREE.AmbientLight( 0x222222 );
-    scene.add( light );
-    */
-    //var light = new THREE.AmbientLight( 0x404040 ); // soft white light
-    //scene.add( light );
-
-    /**
-    var geometry1 = new THREE.BoxGeometry( 1 , 1, 1 );
-    var material1 = new THREE.MeshBasicMaterial( { color: 0x00ff22 } );
-    var cube1 = new THREE.Mesh( geometry1, material1 );
-    scene.add( cube1 );
-    */
-    //camera.position.z = 5;
-    //controls.update();
 
     window.addEventListener( 'resize', onWindowResize, false );
 }
@@ -145,15 +125,6 @@ function onWindowResize() {
 
 var animate = function () {
     requestAnimationFrame( animate );
-
-    //cube.rotation.x += 0.01;
-    //cube.rotation.y += 0.01;
-
-
-    //cube1.rotation.x -= 0.01;
-    //cube1.rotation.y -= 0.01;
-
-    // required if controls.enableDamping or controls.autoRotate are set to true
 	controls.update();
 
     renderer.render( scene, camera );

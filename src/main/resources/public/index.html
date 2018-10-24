@@ -10,7 +10,7 @@
 <div class="wrapper" ng-app="myApp" ng-controller="myCtrl">
 
     <navigation-list></navigation-list>
-    <div id="content">
+    <div id="options-settings">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
 
@@ -25,33 +25,10 @@
         <create-station service-address = "serviceAddress"
                         get-station-response="getStationResponse()"
                         stations-in-system="stationMap"></create-station>
-
-        <div class="container" id="container">
-            <!--<div id="option1">
-                {{station}}
-                <h1>My First Bootstrap Page</h1>
-                <p>This is some text.</p>
-                <div class="row">
-                    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
-                    <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
-                    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-6 red">
-                        das ist ein test
-                    </div>
-
-                    <div class="col-xs-3 blue">
-                        das ist kein test
-                    </div>
-                </div>
-                <div id="createStation">
-                    <button type="button" ng-click="deleteStation('Louis-Lewin-Str')">removeStation</button>
-                </div>
-            </div> -->
-        </div>
-
     </div>
+
+</div>
+<div id="container">
 </div>
 
 <script src="webjars/angularjs/angular.min.js"></script>

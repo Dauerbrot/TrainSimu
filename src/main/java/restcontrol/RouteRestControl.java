@@ -18,6 +18,7 @@ public class RouteRestControl {
 
     @RequestMapping("/route")
     public Route getRoute(){
+        /**
         StationDomain station = new StationDomain();
         station.setId(100001L);
         station.setName("Loewemstrasse");
@@ -26,14 +27,18 @@ public class RouteRestControl {
         stationRepository.save(station);
 
         return null;
+         */
+        return null;
     }
 
     @RequestMapping("/simRoute")
     public void simulateRoute(){
+        /**
         RouteDomain routeDomain = new RouteDomain();
         routeDomain.setRouteName("U9");
         List<StationDomain> stations = stationRepository.findAll();
         routeDomain.setStations(stations);
         routeRepository.save(routeDomain);
+         */
     }
 }

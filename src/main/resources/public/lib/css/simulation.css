@@ -20,3 +20,7 @@
 #sidebar.active {
     margin-left: -250px;
 }
+
+.row, .col-sm-12 {
+    margin-top: 10px;
+}
