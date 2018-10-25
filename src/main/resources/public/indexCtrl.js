@@ -1,64 +1,25 @@
-app.controller("myCtrl", function($scope, $http) {
-    var address = "http://localhost";
-    var port = ":8080/";
-    var serviceAddress = address+port;
-    $scope.serviceAddress = address+port;
+app.controller("myCtrl", ['$scope', 'stationService', function($scope, stationService) {
     $scope.firstName = "John";
     $scope.lastName= "Doe";
+    $scope.option = "";
 
-    /**
-    activate the toggle function on the button, which allows us to activate or deactive the sidebar
-    */
-    $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-        });
+    $scope.$on('navbarInteraction',function(event, interaction){
+        $scope.option = interaction;
     });
 
-    $scope.showGraphic = true;
+    $scope.showOption = true;
     /**
     purpose is to activate or deactivate the graphic field, so we can edit the informations from the train network
     */
-    $scope.toggleGraphicField = function(){
-        if($scope.showGraphic){
-            $scope.showGraphic = false;
+    $scope.toggleOptionField = function(){
+        if($scope.showOption){
+            $scope.showOption = false;
         }else{
-            $scope.showGraphic = true;
+            $scope.showOption = true;
         }
+        $scope.option = "";
     }
 
+    stationService.getStationResponse();
 
-    $scope.station;
-    //collect all Stationdata in Map from Database
-    $scope.stationMap = {};
-    //collect all created meshs, which are in the scene
-    $scope.stationMapMesh = {}
-    $scope.filterStationByName = function(station){
-        for(var i = 0; i < station.length; i++){
-            var singleStation = station[i];
-            var stationModel = createCube(singleStation.name, singleStation.positionX, singleStation.positionZ)
-
-            removeItemFromScene(stationModel);
-            addItemToScene(stationModel)
-            $scope.stationMap[singleStation.name] = singleStation;
-            $scope.stationMapMesh[singleStation.name] = stationModel;
-        }
-    }
-
-    $scope.getStationResponse = function(){
-        $http.get(serviceAddress + 'station').then(function(response){
-            $scope.station = response.data;
-            $scope.filterStationByName($scope.station);
-        })
-    }
-
-    $scope.getStationResponse();
-
-    $scope.deleteStation = function(stationName){
-        var stationResult =  $scope.stationMapMesh[stationName];
-        if(stationResult !== null){
-            removeItemFromScene(stationResult);
-        }
-    }
-
-});
+}]);

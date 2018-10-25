@@ -6,6 +6,14 @@
     background-color: red;
 }
 
+.spacer {
+    margin: 20px;
+}
+
+
+#options-settings{
+    width:100%;
+}
 
 .wrapper {
     display: flex;
