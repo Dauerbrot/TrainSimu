@@ -21,9 +21,15 @@
 
             </div>
         </nav>
-        <div ng-if="option === 'create'">
+        <!--Station Options -->
+        <div ng-if="option === 'createStation'">
             <create-station service-address = "serviceAddress"></create-station>
         </div>
+        <!-- Route Options -->
+        <div ng-if="option === 'createRoute'">
+            <create-route service-address = "serviceAddress"></create-route>
+        </div>
+
     </div>
 
 </div>
@@ -46,8 +52,14 @@
 <script src="/indexCtrl.js"></script>
 <!-- services -->
 <script src="/services/stationService.js"></script>
+<script src="/services/routeService.js"></script>
+
 <!-- own directives -->
 <script src="/option/navbar.js"></script>
-<script src="/directives/directive.js"></script>
+<!-- directive stations -->
+<script src="/directives/stationTemplate/createStation.js"></script>
+<!-- directive routes -->
+<script src="/directives/routeTemplate/createRoute.js"></script>
+
 </body>
 </html>

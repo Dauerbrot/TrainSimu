@@ -54,6 +54,23 @@ function createCube(name, posX, posZ, color){
     return cubeMesh;
 }
 
+
+/**
+@parameter station1
+@parameter station2
+*/
+function createRoute(station1, station2){
+    var material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+    var geometry = new THREE.Geometry();
+    var startStationPosition = station1.position;
+    var endStationPosition = station2.position;
+
+    geometry.vertices.push(new THREE.Vector3( startStationPosition.x, startStationPosition.y, startStationPosition.z));
+    geometry.vertices.push(new THREE.Vector3( endStationPosition.x, endStationPosition.y, endStationPosition.z) );
+    return new THREE.Line( geometry, material );
+}
+
+
 function createLine(){
     var material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
     var geometry = new THREE.Geometry();

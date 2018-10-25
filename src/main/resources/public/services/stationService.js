@@ -1,8 +1,4 @@
 app.service('stationService',['$http', function($http){
-    var address = "http://localhost";
-    var port = ":8080/";
-    var serviceAddress = address+port;
-
     //collect all Stationdata in Map from Database
     var stationMap = {};
     //collect all created meshs, which are in the scene
@@ -51,6 +47,10 @@ app.service('stationService',['$http', function($http){
     /******************* GETTER **********************/
     this.getStationInSystem = function(){
         return stationMap;
+    }
+
+    this.getStationMeshes = function(){
+        return stationMapMesh;
     }
 
 }]);

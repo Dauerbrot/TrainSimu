@@ -11,15 +11,21 @@ import java.util.Set;
 public class RouteDomain implements Route {
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
+    private String routeName;
 
-    String routeName;
 
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
     private List<StationDomain> stations = new ArrayList<>();
+
+    @OneToOne(targetEntity = StationDomain.class)
+    private StationDomain startStation;
+
+    @OneToOne(targetEntity = StationDomain.class)
+    private StationDomain endStation;
 
     public RouteDomain(){}
 
@@ -61,5 +67,21 @@ public class RouteDomain implements Route {
 
     public void setStations(List<StationDomain> stations) {
         this.stations = stations;
+    }
+
+    public StationDomain getStartStation() {
+        return startStation;
+    }
+
+    public void setStartStation(StationDomain startStation) {
+        this.startStation = startStation;
+    }
+
+    public StationDomain getEndStation() {
+        return endStation;
+    }
+
+    public void setEndStation(StationDomain endStation) {
+        this.endStation = endStation;
     }
 }

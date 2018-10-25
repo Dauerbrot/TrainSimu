@@ -1,12 +1,8 @@
 app.directive("createStation",function(){
-
-
     return {
         restrict: 'EA',
-        templateUrl: "/directives/createStation.html",
+        templateUrl: "/directives/stationTemplate/createStation.html",
         controller: ['$scope', 'stationService', function($scope, stationService){
-            console.log($scope);
-
             //Cache will be deleted, the moment the post is sended.
             $scope.stationCreateCache = []
 
